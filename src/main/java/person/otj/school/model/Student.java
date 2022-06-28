@@ -8,7 +8,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Student {
-    private int studentId;
+    private int studentid;
     private String sname;
     private String score;
     private String gender;

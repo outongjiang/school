@@ -48,9 +48,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.enbatis</groupId>
-            <artifactId>mybatis-plugs-spring-boot-starter</artifactId>
-            <version>1.2.1</version>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 

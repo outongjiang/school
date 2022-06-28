@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"></html>
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- 新 Bootstrap5 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+
+    <!--   -->
+    <style>
+        .width {
+            width: 300px;
+
+        }
+        .position{
+            position: absolute;
+            left: 756px;
+            top: 329px;
+        }
+        .login{
+            position: absolute;
+            left: 46px;
+            top: 201px;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 
+<div class="position">
+    <h1>欢迎来到学生管理系统 <span class="badge bg-secondary"></span></h1>
+    <form action="/dologin" method="post">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control width" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">用户名</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control width" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">密码</label>
+        </div>
+        <button type="submit" class="btn btn-primary login">注册</button>
+    </form>
+</div>
 </body>
 </html>
