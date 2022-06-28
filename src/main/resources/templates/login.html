@@ -13,19 +13,31 @@
 
 <!--   -->
     <style>
-        .width{
+        .width {
             width: 300px;
+
+        }
+        .position{
+            position: absolute;
+            left: 756px;
+            top: 329px;
         }
     </style>
 </head>
 <body>
-<div class="form-floating mb-3">
-    <input type="email" class="form-control width" id="floatingInput" placeholder="name@example.com">
-    <label for="floatingInput">用户名</label>
-</div>
-<div class="form-floating">
-    <input type="password" class="form-control width" id="floatingPassword" placeholder="Password">
-    <label for="floatingPassword">密码</label>
-</div>
+
+    <div class="position">
+        <h1>欢迎来到学生管理系统 <span class="badge bg-secondary"></span></h1>
+    <form action="/dologin" method="post">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control width" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">用户名</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control width" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">密码</label>
+        </div>
+    </form>
+    </div>
 </body>
 </html>
