@@ -24,9 +24,10 @@ class SchoolApplicationTests {
     @Test
     void test1(){
         IPage<Student> page=new Page<>(1,5);
-        for (Student s:studentMapper.selectPage(page,null).getRecords()){
-            System.out.println(s);
-        }
+        System.out.println("总页数->"+studentMapper.selectPage(page,null).getTotal());
+        System.out.println("尺寸->"+studentMapper.selectPage(page,null).getSize());
+        System.out.println("当前页->"+studentMapper.selectPage(page,null).getCurrent());
+        IPage<Student>  page1=studentMapper.selectPage(page,null);
     }
 
     @Test
@@ -55,7 +56,7 @@ class SchoolApplicationTests {
             snames = zimus.split("");
             snos = shuzis.split("");
             student = new Student();
-            student.setScore(String.valueOf((int)(Math.random() * 100)));
+            student.setScore((int)(Math.random() * 100));
             student.setGender(genders);
             String sname = "";
             String sno = "";

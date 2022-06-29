@@ -55,7 +55,7 @@
             <th>移除</th>
         </tr>
         </thead>
-        <tbody th:each="student,status:${studentList}">
+        <tbody th:each="student,status:${pageVo.students}">
         <tr>
             <!--/*@thymesVar id="status" type=""*/-->
             <td th:text="${status.index}"></td>
@@ -69,13 +69,13 @@
     </table>
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link" th:href="@{'/pre?currpage='+${current}}">上一页</a>
+            <a class="page-link" th:href="@{'/pre?currpage='+${pageVo.currpage}+'&total='+${pageVo.total}}">上一页</a>
         </li>
-        <li class="page-item" th:each="i:${#numbers.sequence(0,total,1)}">
-                <a class="page-link" th:href="@{'/num?currpage='+${i}}" th:text="${i}"></a>
+        <li class="page-item" th:each="i:${#numbers.sequence(1,pageVo.total/5,1)}">
+                <a class="page-link" th:href="@{'/num?currpage='+${i}+'&total='+${pageVo.total}}" th:text="${i}"></a>
         </li>
         <li class="page-item">
-            <a class="page-link" th:href="@{'/next?currpage='+${current}}">下一页</a>
+            <a class="page-link" th:href="@{'/next?currpage='+${pageVo.currpage}+'&total='+${pageVo.total}}">下一页</a>
         </li>
     </ul>
 </div>
