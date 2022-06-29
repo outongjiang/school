@@ -7,12 +7,23 @@ import person.otj.school.model.User;
 import person.otj.school.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
+
     @Autowired
     private UserMapper userMapper;
+
     @Override
     public int findUserByUnamePwd(String username, String password) {
         QueryWrapper<User>wrapper=new QueryWrapper<>();
         wrapper.eq("username",username).eq("password",password);
         return userMapper.selectCount(wrapper)>0?1:0;
     }
+
+    @Override
+    public int save(String username, String password) {
+        User user=new User();
+        user.setPassword(password);
+        user.setUsername(username);
+        return userMapper.insert(user);
+    }
+
 }

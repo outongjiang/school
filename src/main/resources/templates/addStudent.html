@@ -1,5 +1,6 @@
-<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org"></html>
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <!-- 新 Bootstrap5 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
@@ -9,13 +10,83 @@
 
     <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
-
+    <!--    axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--   -->
     <style>
+        .width {
+            width: 300px;
 
+        }
+        .position{
+            position: absolute;
+            left: 671px;
+            top: 33px;
+        }
+        .login{
+            position: absolute;
+            left: 46px;
+            top: 390px;
+            width: 200px;
+        }
+        .register{
+            position: absolute;
+            left: 46px;
+            top: 438px;
+            width: 200px;
+        }
     </style>
+    <script>
+        window.onload=function () {
+            document.getElementById("login").onclick = function(){
+                // axios({
+                //     method:"POST",
+                //     url:"http://localhost:8081/register",
+                // })
+                window.location.href="http://localhost:8081/index";
+            };
+        }
+    </script>
+    <script>
+        window.onload=function () {
+            document.getElementById("login").onclick = function(){
+                // axios({
+                //     method:"POST",
+                //     url:"http://localhost:8081/register",
+                // })
+                window.location.href="http://localhost:8081/index";
+            };
+        }
+    </script>
 </head>
 <body>
+
+<div class="position">
+
+    <h1>欢迎来到学生管理系统-添加学生<span class="badge bg-secondary"></span></h1>
+
+    <form action="/doaddStudent" method="post">
+        <div class="form-floating mb-3">
+            <input name="sname" type="text" class="form-control width" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">学生姓名</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input name="score" type="text" class="form-control width" id="floatingPassword" placeholder="Password">
+            <label for="floatingInput">分数</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input name="sno" type="text" class="form-control width" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">学号</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input name="gender" type="text" class="form-control width" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">性别</label>
+        </div>
+        <button type="submit" class="btn btn-primary login">添加</button>
+        <button type="button" id="login" class="btn btn-primary register">返回首页</button>
+    </form>
+
+</div>
 
 </body>
 </html>

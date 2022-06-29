@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import person.otj.school.model.User;
 import person.otj.school.service.StudentService;
 import person.otj.school.service.UserService;
-
 @Controller
 public class UserController {
 
@@ -19,7 +18,7 @@ public class UserController {
     @Autowired
     private StudentService studentService;
 
-    @RequestMapping(value = {"/","/login"},method = {RequestMethod.POST,RequestMethod.GET})
+    @RequestMapping(value = {"/login"},method = {RequestMethod.POST,RequestMethod.GET})
     public String login(){
         return "login";
     }
@@ -30,6 +29,7 @@ public class UserController {
             modelAndView.addObject(user);
             modelAndView.setViewName("studentList");
             modelAndView.addObject("studentList",studentService.findAll());
+            modelAndView.setViewName("index");
         }else
         {
             modelAndView.setViewName("login");
@@ -37,5 +37,10 @@ public class UserController {
         return modelAndView;
     }
 
+    @PostMapping("/doregister")
+    public String doregister(String username,String password){
+        userService.save(username,password);
+        return "login";
+    }
 
 }

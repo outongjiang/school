@@ -10,7 +10,8 @@
 
     <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
-
+    <!--    axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--   -->
     <style>
         .width {
@@ -28,22 +29,42 @@
             top: 201px;
             width: 200px;
         }
+        .register{
+            position: absolute;
+            left: 46px;
+            top: 260px;
+            width: 200px;
+        }
     </style>
+    <script>
+        window.onload=function () {
+            document.getElementById("login").onclick = function(){
+                // axios({
+                //     method:"POST",
+                //     url:"http://localhost:8081/register",
+                // })
+                window.location.href="http://localhost:8081/index";
+            };
+        }
+    </script>
 </head>
 <body>
 
 <div class="position">
-    <h1>欢迎来到学生管理系统 <span class="badge bg-secondary"></span></h1>
+
+    <h1>欢迎来到学生管理系统-注册<span class="badge bg-secondary"></span></h1>
+
     <form action="/doregister" method="post">
         <div class="form-floating mb-3">
-            <input type="email" class="form-control width" id="floatingInput" placeholder="name@example.com">
+            <input name="username" type="text" class="form-control width" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">用户名</label>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control width" id="floatingPassword" placeholder="Password">
+        <div class="form-floating mb-3">
+            <input name="password" type="password" class="form-control width" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">密码</label>
         </div>
         <button type="submit" class="btn btn-primary login">注册</button>
+        <button type="button" id="login" class="btn btn-primary register">返回首页</button>
     </form>
 </div>
 </body>
