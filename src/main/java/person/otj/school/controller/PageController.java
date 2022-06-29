@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -22,4 +23,10 @@ public class PageController {
 
 
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.setAttribute("username",null);
+        return "index";
+
+    }
 }

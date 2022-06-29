@@ -9,6 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 import person.otj.school.model.User;
 import person.otj.school.service.StudentService;
 import person.otj.school.service.UserService;
+
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UserController {
 
@@ -24,12 +27,13 @@ public class UserController {
     }
 
     @PostMapping("/dologin")
-    public ModelAndView dologin(User user, ModelAndView modelAndView){
+    public ModelAndView dologin(User user, ModelAndView modelAndView, HttpSession session){
         if(userService.findUserByUnamePwd(user.getUsername(),user.getPassword())==1){
             modelAndView.addObject(user);
             modelAndView.setViewName("studentList");
             modelAndView.addObject("studentList",studentService.findAll());
             modelAndView.setViewName("index");
+            session.setAttribute("username",user.getUsername());
         }else
         {
             modelAndView.setViewName("login");
